@@ -41,8 +41,6 @@ class ClassInformation
      */
     public function analyze(): ?array
     {
-        $class=$this->className;
-
         $array=[
             'className'=>'',
             'classType'=>'',
@@ -52,11 +50,10 @@ class ClassInformation
             'publicMethods'=>0,
             'protectedMethods'=>0,
             'privateMethods'=>0,
-
         ];
 
         try {
-            $classAnalyzer= new \ReflectionClass($class);
+            $classAnalyzer= new \ReflectionClass($this->className);
 
             $array['className']=$classAnalyzer->getName();
 
