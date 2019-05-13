@@ -25,6 +25,11 @@
       "Greeflas\\StaticAnalyzer\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Greeflas\\StaticAnalyzer\\Test\\": "test/"
+    }
+  },
   "scripts": {
     "cs-fix": "php-cs-fixer fix --allow-risky=yes --ansi"
   }
