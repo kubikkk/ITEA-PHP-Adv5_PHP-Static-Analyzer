@@ -11,7 +11,6 @@
 
 namespace Greeflas\StaticAnalyzer\Analyzer;
 
-include __DIR__ . '/../../tests/TestClass.php';
 
 
 /**
@@ -41,16 +40,7 @@ class ClassInformation
      */
     public function analyze(): ?array
     {
-        $array=[
-            'className'=>'',
-            'classType'=>'',
-            'publicProperties'=>0,
-            'protectedProperties'=>0,
-            'privateProperties'=>0,
-            'publicMethods'=>0,
-            'protectedMethods'=>0,
-            'privateMethods'=>0,
-        ];
+
 
         try {
             $classAnalyzer= new \ReflectionClass($this->className);
@@ -60,14 +50,10 @@ class ClassInformation
 
             if ($classAnalyzer->isAbstract()) {
                 $array['classType']='Abstract';
-            } elseif ($classAnalyzer->isAnonymous()) {
-                $array['classType']='Anonymous';
             } elseif ($classAnalyzer->isFinal()) {
                 $array['classType']='Final';
-            } elseif ($classAnalyzer->isIterable()) {
-                $array['classType']='Iterable';
             } elseif (empty($array['classType'])) {
-                $array['classType']='Default';
+                $array['classType']='Normal';
             }
 
             if ($classAnalyzer->getProperties()) {
